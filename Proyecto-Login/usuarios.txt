@@ -3,3 +3,5 @@ alberto:$2y$10$QLhMPoGWNnEDcUFWoaIidumhjpLHsrG9Th/7dRtXP5Hrij9lXZVb2
 Liam:$2y$10$gN7A53J9HpFgf6MtFOorxucrTqHr38ol7qAmAlOZvHnqdytdlJ.lS
 alberto:$2y$10$PupJZyndlekQTBKu3pYMKOhz.tPURQIfbaQDWSSDVqwr7E04eFl72
 unai:$2y$10$ppnBINOYr4Rp9koEUM.86ulEGo63QnCjEkxvt/O3EoG.Cj2g6MzgK
+Rous:$2y$10$FcfKVIOAToijx2RGkFNww.Ge4BcAr1s03OU6teoCPVZZeK0KAqrZ2
+rosalia:$2y$10$rADggYBAfKULxVp/iY6TbuD/TQWW93DjC5Ce2Kb0Z9gY5uTg5lhoW

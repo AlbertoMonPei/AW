@@ -9,3 +9,4 @@ fclose($file);
 
 echo"<h1>Usuario registrado correctamente</h1>";
 echo"<p><a href='login.php'>Iniciar sesión</a></p>";
+

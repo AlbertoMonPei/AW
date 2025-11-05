@@ -20,5 +20,6 @@ if (!isset($_SESSION['usuario'])){
     <h1>Bienvenido, <?php echo $_SESSION['usuario'];?></h1>
     <a href="logout.php" class="boton-logout">Cerrar Sesión</a>    
 </div>
+
 </body>
 </html>
