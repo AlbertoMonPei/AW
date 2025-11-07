@@ -5,3 +5,7 @@ alberto:$2y$10$PupJZyndlekQTBKu3pYMKOhz.tPURQIfbaQDWSSDVqwr7E04eFl72
 unai:$2y$10$ppnBINOYr4Rp9koEUM.86ulEGo63QnCjEkxvt/O3EoG.Cj2g6MzgK
 Rous:$2y$10$FcfKVIOAToijx2RGkFNww.Ge4BcAr1s03OU6teoCPVZZeK0KAqrZ2
 rosalia:$2y$10$rADggYBAfKULxVp/iY6TbuD/TQWW93DjC5Ce2Kb0Z9gY5uTg5lhoW
+ana:$2y$10$suyVD/KNaWE9XfR0RQC.D.y6rnAiJ3t8Ugrm.2vjYtQ1RJubvfkam
+raquel:$2y$10$DN0zgMDAraIOEFZX3B.uoeQV7IiVzwgc9dwkT1qIWwZsdeHJGUaZO
+raul:$2y$10$xJ19utVIX/TaDiYdUNsAGOdjxsdjvsPVNrQtBR.JhegES56NCMwOG
+alfredo:$2y$10$a22IQaH4j3fwgKqzTlxnXuH2cwkAchb3nVeSI9lFtE/ItFwIWujc2
