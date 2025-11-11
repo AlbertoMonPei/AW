@@ -4,9 +4,15 @@ $password=$_POST['password'];
 
 
 $file=fopen("usuarios.txt","a");
-fwrite($file, $usuario. ":".password_hash($password, PASSWORD_DEFAULT). "\n");
+fwrite($file, trim($usuario). ":".password_hash($password, PASSWORD_DEFAULT). "\n");
 fclose($file);
 
+session_start();
+
+$_SESSION['registro_exitoso'] = "¡Usuario registrado correctamente";
+
+header("Location: login.php");
+exit;
 
 ?>
 
