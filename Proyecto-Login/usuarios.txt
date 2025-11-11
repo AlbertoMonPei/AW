@@ -14,3 +14,4 @@ pedro:$2y$10$ZwUVLhQOYSkZ3gWxQXKMt.V6bEBeqUC4EHRT6kX9tgcEkoF7e6YIK
 carmen:$2y$10$/NfaVgjixGx7y0Cza.qFWuHnTKZ7F/L1s2vk4b9pBzheaH9wzgnzi
 alberto:$2y$10$tfGBxRPNiOCq5QI87TcLI.9iRImP4FY05qeysBx1bMpCfJfFLQtui
 roxana:$2y$10$sT7V30J2KJ24BH6OOLCp/.WYMSP2letuBdxevZ5oDG7D3bBCKmlVC
+miguel angel:$2y$10$Yq6t/YN5JQ5PxjkboqCsW.XeCiiHXhWanDdZdGGVCtdQG98M6Sasi
