@@ -21,7 +21,7 @@ else if (isset($_SESSION['registro_exitoso'])) {
     $modal_title = "¡Registro Exitoso!";
     $modal_body = $_SESSION['registro_exitoso'];
     $modal_button_text = "Iniciar Sesión";
-    unset($_SESSION['registro_exitoso']); // Limpia el mensaje
+    unset($_SESSION['registro_exitoso']);
 }
 ?>
 <!DOCTYPE html>
@@ -38,7 +38,7 @@ else if (isset($_SESSION['registro_exitoso'])) {
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.6); /* Fondo oscuro */
+            background-color: rgba(0, 0, 0, 0.6);
             
             /* Centra la ventana */
             display: flex;
@@ -58,13 +58,13 @@ else if (isset($_SESSION['registro_exitoso'])) {
             visibility: visible;
         }
 
-        /* La ventana blanca */
+        /* Estilo ventana */
         .modal-content {
             background-image: 
         /* Capa 1: Un velo oscuro semitransparente */
         linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
         
-        /* Capa 2: Tu imagen de fondo (pon tu ruta correcta) */
+        /* Capa 2: Imagen de fondo */
         url('Imagenes/ventana-error-exito.jpg');
             background-size: cover;
             background-position: center;
@@ -75,19 +75,17 @@ else if (isset($_SESSION['registro_exitoso'])) {
             max-width: 400px;
             width: 90%;
             box-sizing: border-box;
-            
-            /* Texto alineado a la izquierda */
             text-align: center;
             color: #333;
         }
-
+        /*Estilo titulo menaje*/
         .modal-content h3 {
             margin-top: 0;
             margin-bottom: 15px;
             font-size: 1.1rem;
             color: #ffffffff;
         }
-
+        /*Estilo texto mensaje*/
         .modal-content p {
             color: #ffffffff;
             margin-top: 0;
@@ -95,14 +93,14 @@ else if (isset($_SESSION['registro_exitoso'])) {
             font-size: 1rem;
         }
 
-        /* Contenedor para alinear el botón a la derecha */
+        /* Contenedor para alinear el botón en el centro */
         .modal-actions {
             text-align: center;
         }
 
-        /* Botón (Estilo "OK") */
+        /* Botón "OK" */
         #modal-close-btn {
-            background-color: #ff00c8; /* Rosa */
+            background-color: #ff00c8;
             color: white;
             font-size: 0.9rem;
             font-weight: bold;
