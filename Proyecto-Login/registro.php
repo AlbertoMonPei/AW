@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="CSS/estilos.css">
 </head>
 <body>
+
     <h1>REGISTRO</h1>
     <form action="procesar_registro.php" method="post">
     <label>Usuario:</label>
@@ -15,6 +16,7 @@
     <button type="submit">Registrarse</button>
     </form>
     <p>¿Ya tienes cuenta? <a href="login.php">Inicia sesión aquí</a></p>
+
 
 
 </body>

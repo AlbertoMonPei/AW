@@ -4,7 +4,7 @@ body {
     background-image: url(../Imagenes/bienvenida.jpg);
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: center;/*los background nos ajusta el tamaño, lo centra y hace que no se repita*/
     margin: 0;
     padding: 0;
     display: grid;
@@ -14,15 +14,16 @@ body {
 h1 {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-style: italic;
-    font-size: 40px;
+    font-size: 40px;/*Fuentes*/
     color: rgb(255, 255, 255);
     text-align: center;
   
 }
 .contenedor_bienvenida{
-    text-align: center;
+    text-align: center; /*Nos centra el contenido*/
 }
 
+/*Botón de cerrar sesión*/
 .boton-logout {
     display: inline-block;
     margin-top: 25px;
@@ -35,6 +36,7 @@ h1 {
     border-radius: 5px;
     transition: background-color 0.3s;
 }
+/*Estilo al pasar el raton por encima*/
 .boton-logout:hover {
     background-color: #0056b3;
 }

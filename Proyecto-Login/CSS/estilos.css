@@ -13,17 +13,7 @@ body {
     justify-content: center;
 }
 
-/* Contenedor principal (la "tarjeta") */
-.container {
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgb(255, 255, 255);
-    padding: 2rem;
-    width: 100%;
-    max-width: 400px;
-    justify-content: center;
-    box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
-}
+
 
 /* Título */
 h1 {
