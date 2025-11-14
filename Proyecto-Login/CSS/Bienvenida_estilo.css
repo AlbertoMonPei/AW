@@ -7,8 +7,10 @@ body {
     background-position: center;/*los background nos ajusta el tamaño, lo centra y hace que no se repita*/
     margin: 0;
     padding: 0;
-    display: grid;
-    place-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     min-height: 100vh;
 }
 h1 {

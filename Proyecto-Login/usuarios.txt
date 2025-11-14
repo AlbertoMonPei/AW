@@ -15,3 +15,5 @@ carmen:$2y$10$/NfaVgjixGx7y0Cza.qFWuHnTKZ7F/L1s2vk4b9pBzheaH9wzgnzi
 alberto:$2y$10$tfGBxRPNiOCq5QI87TcLI.9iRImP4FY05qeysBx1bMpCfJfFLQtui
 roxana:$2y$10$sT7V30J2KJ24BH6OOLCp/.WYMSP2letuBdxevZ5oDG7D3bBCKmlVC
 miguel angel:$2y$10$Yq6t/YN5JQ5PxjkboqCsW.XeCiiHXhWanDdZdGGVCtdQG98M6Sasi
+andres:$2y$10$RXuev2DyAN/K8OLv8QKhGe7CA3NLYv3YNU7Q7BiSm/BZRnvhBZWSG
+alberto:$2y$10$kpOn3rL78sADRu2qpC/hueX9KOHyYwDE.wo9RKyzC6h2xVgapp/gO
