@@ -1,170 +1,121 @@
-/* Estilos generales para el body*/
-body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;/*Fuente de letra*/
-    background-color: aquamarine;
-    margin: 0px;
+/* Importamos la fuente 'Poppins' desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+/* 1. RESET Y CONFIGURACIÓN GENERAL */
+* {
+    margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    /* Fondo degradado moderno (Verde a Rosa) */
+    background: linear-gradient(135deg, #7fd86d 0%, #a547a8 100%);
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    min-height: 100vh;
 }
 
-
-
-/* Título */
-h1 {
-    color: #0044ff;
-    text-align: center;
-    margin-top: 0;
-}
-
-/* Posición de los Formularios */
-form {
-    display: flex;
-    flex-direction: column;
-}
-
-/* Etiquetas Usuario y Contraseña */
-label {
-    font-size: 16px;
-    color: #0044ff;
-    margin-bottom: 5px;
-    margin-top: 15px;
-}
-
-/* Campos de texto y contraseña */
-input[type="text"],
-input[type="password"] {
-    padding: 12px;
-    border: 1px solid #0044ff;
-    border-radius: 5px;
-    font-size: 16px;
-    box-sizing: border-box; /* Asegura que el padding no afecte el ancho */
+/* 2. LA TARJETA (Contenedor blanco) */
+.card {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2); /* Sombra suave 3D */
     width: 100%;
-}
-
-/* Botón */
-button[type="submit"] {
-    background-color: #0044ff;
-    color: white;
-    font-size: 1rem;
-    font-weight: bold;
-    width: 50%;
-    border: none;
-    padding: 14px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 25px;
-    transition: background-color 0.2s ease;
-    width: 50%;
-    /*Para centrar el botón*/
-    display: block;
-    margin-left:auto;
-    margin-right: auto;
-    
-}
-
-button[type="submit"]:hover {
-    background-color: #00ff00;/*Cambia a color azul al pasar el ratón*/
-}
-
-/* Párrafos y enlaces "Ya tienes cuenta?" */
-p {
+    max-width: 400px; /* Ancho máximo para que no se estire demasiado */
     text-align: center;
-    margin-top: 15px;
-    color: #0044ff;
 }
 
-a {
-    color: #0044ff; /*Fuente para modificar el enlace de "Ya tienes cuenta?"*/
+.card h1 {
+    color: #333;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+/* 3. LOS INPUTS (Campos de texto) */
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #666;
+    font-size: 14px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e1e1e1;
+    border-radius: 8px;
+    outline: none; /* Quita el borde azul por defecto del navegador */
+    transition: 0.3s;
+    font-size: 16px;
+}
+
+/* Efecto al hacer clic dentro del input */
+input:focus {
+    border-color: #764ba2;
+}
+
+/* 4. EL BOTÓN */
+button {
+    width: 100%;
+    padding: 12px;
+    background: #a547a8;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+/* Efecto al pasar el ratón sobre el botón */
+button:hover {
+    background: #7fd86d;
+    transform: translateY(-2px); /* Pequeña elevación */
+}
+
+/* 5. ENLACE INFERIOR (Footer) */
+.footer-text {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #666;
+}
+
+.footer-text a {
+    color: #000000;
     text-decoration: none;
+    font-weight: bold;
 }
 
-a:hover {
-    text-decoration: underline; /*Subraya la frase al pasar el ratón*/
+.footer-text a:hover {
+    text-decoration: underline;
 }
 
-.modal-overlay {
-            position: fixed; /* Se queda fijo en la pantalla */
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.6);
-            
-            /* Centra la ventana */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            
-            /* Oculto por defecto */
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s ease;
-            z-index: 1000; /* Asegura que esté por encima de todo */
-        }
+/* Estilo específico para el botón de cerrar sesión (Rojo) */
+.btn-logout {
+    display: inline-block;
+    padding: 12px 35px;
+    background-color: #ff4757; 
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.3s;
+    margin-top: 20px; /* Un poco de espacio arriba */
+}
 
-        /* Clase para MOSTRAR el modal */
-        .modal-overlay.show {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        /* Estilo ventana */
-        .modal-content {
-            background-image: 
-        /* Capa 1: Un velo oscuro semitransparente */
-        linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-        
-        /* Capa 2: Imagen de fondo */
-        url('../Imagenes/ventana-error-exito.jpg');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
-            max-width: 400px;
-            width: 90%;
-            box-sizing: border-box;
-            text-align: center;
-            color: #333;
-        }
-        /*Estilo titulo menaje*/
-        .modal-content h3 {
-            margin-top: 0;
-            margin-bottom: 15px;
-            font-size: 1.1rem;
-            color: #ffffffff;
-        }
-        /*Estilo texto mensaje*/
-        .modal-content p {
-            color: #ffffffff;
-            margin-top: 0;
-            margin-bottom: 25px;
-            font-size: 1rem;
-        }
-
-        /* Contenedor para alinear el botón en el centro */
-        .modal-actions {
-            text-align: center;
-        }
-
-        /* Botón "OK" */
-        #modal-close-btn {
-            background-color: #ff00c8;
-            color: white;
-            font-size: 0.9rem;
-            font-weight: bold;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.2s ease;
-        }
-
-        #modal-close-btn:hover {
-            background-color: #0056b3;
-        }
+.btn-logout:hover {
+    background-color: #e84118;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(255, 71, 87, 0.4);
+}
