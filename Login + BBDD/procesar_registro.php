@@ -1,32 +1,49 @@
 <?php
-include "conexion.php"; // Trae tu puente de conexión que ya funciona
+include "conexion.php";
 
-// Recibir los datos del formulario
 $usuario = $_POST['usuario'];
 $password = $_POST['password'];
 
-// 1. Encriptar contraseña: Esto convierte "1234" en un código indescifrable
-$hash = password_hash($password, PASSWORD_DEFAULT);
+// --- PASO 1: COMPROBACIÓN (El Chequeo) ---
 
-// 2. Preparar la consulta SQL de forma segura
-// Los signos de interrogación (?) son marcadores para evitar que te hackeen (SQL Injection)
-$stmt = $conn->prepare("INSERT INTO usuarios (usuario, password) VALUES (?, ?)");
+// Preparamos una consulta para buscar si ese nombre ya existe
+$check = $conn->prepare("SELECT id FROM usuarios WHERE usuario = ?");
+$check->bind_param("s", $usuario);
+$check->execute();
+$check->store_result();
 
-// 3. Vincular los datos: "ss" significa que mandamos dos Strings (texto)
-$stmt->bind_param("ss", $usuario, $hash);
-
-// 4. Ejecutar y verificar
-if ($stmt->execute()) {
-    // Si sale bien
-    echo "<h1>Usuario registrado correctamente</h1>";
-    echo "<p><a href='login.php'>Iniciar sesión</a></p>";
-} else {
-    // Si falla (normalmente porque el usuario ya existe, ya que pusimos UNIQUE en la base de datos)
-    echo "<h1>Error: el usuario ya existe o hubo un problema</h1>";
-    echo "<p><a href='registro.php'>Volver al registro</a></p>";
+// Si el número de filas encontradas es mayor a 0, es que ya existe
+if ($check->num_rows > 0) {
+    echo "<h1>Error: El usuario '$usuario' ya está registrado </h1>";
+    echo "<p>Por favor, elige otro nombre o inicia sesión.</p>";
+    echo "<p><a href='registro.php'>Volver a intentar</a> | <a href='login.php'>Iniciar Sesión</a></p>";
+    
+    // Cerramos y detenemos el script para que no intente registrarlo
+    $check->close();
+    $conn->close();
+    exit; 
 }
 
-// Cerrar conexiones para liberar memoria
+// Cerramos la consulta del chequeo para liberar memoria
+$check->close();
+
+
+// --- PASO 2: EL REGISTRO (Si pasó el chequeo) ---
+
+$hash = password_hash($password, PASSWORD_DEFAULT);
+
+$stmt = $conn->prepare("INSERT INTO usuarios (usuario, password) VALUES (?, ?)");
+$stmt->bind_param("ss", $usuario, $hash);
+
+if ($stmt->execute()) {
+    // Si sale bien, lo mandamos directo al login
+    header("Location: login.php");
+    exit;
+} else {
+    echo "<h1>Error inesperado en la base de datos</h1>";
+    echo "<p><a href='registro.php'>Volver a intentar</a></p>";
+}
+
 $stmt->close();
 $conn->close();
 ?>
