@@ -1,49 +1,89 @@
 <?php
+// Incluimos la conexión
 include "conexion.php";
 
 $usuario = $_POST['usuario'];
 $password = $_POST['password'];
 
-// --- PASO 1: COMPROBACIÓN (El Chequeo) ---
-
-// Preparamos una consulta para buscar si ese nombre ya existe
-$check = $conn->prepare("SELECT id FROM usuarios WHERE usuario = ?");
-$check->bind_param("s", $usuario);
-$check->execute();
-$check->store_result();
-
-// Si el número de filas encontradas es mayor a 0, es que ya existe
-if ($check->num_rows > 0) {
-    echo "<h1>Error: El usuario '$usuario' ya está registrado </h1>";
-    echo "<p>Por favor, elige otro nombre o inicia sesión.</p>";
-    echo "<p><a href='registro.php'>Volver a intentar</a> | <a href='login.php'>Iniciar Sesión</a></p>";
-    
-    // Cerramos y detenemos el script para que no intente registrarlo
-    $check->close();
-    $conn->close();
-    exit; 
-}
-
-// Cerramos la consulta del chequeo para liberar memoria
-$check->close();
-
-
-// --- PASO 2: EL REGISTRO (Si pasó el chequeo) ---
-
+// Encriptar contraseña
 $hash = password_hash($password, PASSWORD_DEFAULT);
 
+// Preparar consulta segura
 $stmt = $conn->prepare("INSERT INTO usuarios (usuario, password) VALUES (?, ?)");
 $stmt->bind_param("ss", $usuario, $hash);
 
-if ($stmt->execute()) {
-    // Si sale bien, lo mandamos directo al login
-    header("Location: login.php");
-    exit;
-} else {
-    echo "<h1>Error inesperado en la base de datos</h1>";
-    echo "<p><a href='registro.php'>Volver a intentar</a></p>";
-}
-
+$resultado = $stmt->execute();
 $stmt->close();
 $conn->close();
 ?>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            /* Este degradado imita el de tu imagen (Verde grisáceo a Morado) */
+            background: linear-gradient(135deg, #a8c0b0 0%, #a0669d 100%);
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify_content: center;
+        }
+    </style>
+</head>
+<body>
+
+<script>
+    // Color morado extraído de tu botón "Entrar": #9c3395 (aprox)
+    const colorBoton = '#a03598'; 
+
+    <?php if ($resultado) { ?>
+        // --- CASO EXITOSO (Estilo acorde a tu diseño) ---
+        Swal.fire({
+            title: '¡Registro Exitoso!',
+            text: 'Tu cuenta ha sido creada correctamente',
+            icon: 'success',
+            // Estilos visuales:
+            background: '#ffffff',       // Fondo blanco como tu tarjeta
+            color: '#333333',            // Texto gris oscuro
+            confirmButtonText: 'Iniciar Sesión',
+            confirmButtonColor: colorBoton, // El morado de tu diseño
+            borderRadius: '15px',         // Bordes redondeados
+            iconColor: colorBoton,        // El icono también morado
+            allowOutsideClick: false,
+            customClass: {
+                popup: 'mis-bordes-redondos' // Para asegurar redondeado
+            }
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = 'login.php';
+            }
+        });
+
+    <?php } else { ?>
+        // --- CASO ERROR ---
+        Swal.fire({
+            title: 'Ups...',
+            text: 'El usuario ya existe o hubo un error',
+            icon: 'error',
+            background: '#ffffff',
+            color: '#333333',
+            confirmButtonText: 'Intentar de nuevo',
+            confirmButtonColor: '#d33', // Rojo para error (o puedes usar el morado también)
+            borderRadius: '15px'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = 'registro.php';
+            }
+        });
+    <?php } ?>
+</script>
+
+</body>
+</html>
