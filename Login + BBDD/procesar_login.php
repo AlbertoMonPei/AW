@@ -1,6 +1,6 @@
 <?php
-session_start(); // [cite: 82]
-include "conexion.php"; // [cite: 83]
+session_start();
+include "conexion.php";
 
 $usuario = $_POST['usuario'];
 $password = $_POST['password'];
@@ -9,31 +9,31 @@ $password = $_POST['password'];
 $tipo_alerta = ""; 
 
 // Consulta segura
-$stmt = $conn->prepare("SELECT id, password FROM usuarios WHERE usuario = ?"); // [cite: 87]
-$stmt->bind_param("s", $usuario); // [cite: 88]
+$stmt = $conn->prepare("SELECT id, password FROM usuarios WHERE usuario = ?");
+$stmt->bind_param("s", $usuario); 
 $stmt->execute();
-$stmt->store_result(); // [cite: 90]
+$stmt->store_result();
 
-if ($stmt->num_rows > 0) { // [cite: 91]
-    $stmt->bind_result($id, $hash); // [cite: 92]
+if ($stmt->num_rows > 0) {  
+    $stmt->bind_result($id, $hash);
     $stmt->fetch(); // [cite: 93]
     
-    if (password_verify($password, $hash)) { // [cite: 94]
-        // SI ES CORRECTO: Inicia sesión y redirige inmediatamente
-        $_SESSION['usuario'] = $usuario; // [cite: 95]
-        header("Location: bienvenida.php"); // [cite: 96]
+    if (password_verify($password, $hash)) { 
+        //si es correcto inicia sesion
+        $_SESSION['usuario'] = $usuario;
+        header("Location: bienvenida.php");
         exit;
     } else {
-        // SI LA CONTRASEÑA ESTÁ MAL
+        // contraseña incorrecta
         $tipo_alerta = "password_incorrecta"; 
     }
 } else {
-    // SI EL USUARIO NO EXISTE
+    // usuario no existe
     $tipo_alerta = "usuario_no_existe"; 
 }
 
-$stmt->close(); // [cite: 105]
-$conn->close(); // [cite: 106]
+$stmt->close();
+$conn->close();
 ?>
 
 <!DOCTYPE html>
@@ -64,7 +64,7 @@ $conn->close(); // [cite: 106]
 
     <?php if ($tipo_alerta == "password_incorrecta") { ?>
         
-        // --- CASO 1: CONTRASEÑA INCORRECTA ---
+        //contraseña incorrecta
         Swal.fire({
             title: 'Contraseña Incorrecta',
             text: 'La contraseña que ingresaste no coincide.',
@@ -82,7 +82,7 @@ $conn->close(); // [cite: 106]
 
     <?php } elseif ($tipo_alerta == "usuario_no_existe") { ?>
 
-        // --- CASO 2: USUARIO NO ENCONTRADO ---
+        // usuario no encontrado
         Swal.fire({
             title: 'Usuario no encontrado',
             text: 'Ese nombre de usuario no existe en nuestra base de datos.',
@@ -96,10 +96,10 @@ $conn->close(); // [cite: 106]
             borderRadius: '15px'
         }).then((result) => {
             if (result.isConfirmed) {
-                // Si le da a Registrarse, lo manda al registro
+                //redirige al registro
                 window.location.href = 'registro.php';
             } else {
-                // Si le da a Probar otro, lo manda al login
+                //redirige al logins
                 window.location.href = 'login.php';
             }
         });
