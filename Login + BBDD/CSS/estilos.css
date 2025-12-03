@@ -23,7 +23,7 @@ body {
     background: white;
     padding: 40px;
     border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2); /* Sombra suave 3D */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
     width: 100%;
     max-width: 400px; /* Ancho máximo para que no se estire demasiado */
     text-align: center;
@@ -58,12 +58,12 @@ input {
     font-size: 16px;
 }
 
-/* Efecto al hacer clic dentro del input */
+/* efecto al hacer clic dentro del input */
 input:focus {
     border-color: #764ba2;
 }
 
-/* Boton formularios*/
+/* boton formularios*/
 button {
     width: 100%;
     padding: 12px;
@@ -78,13 +78,13 @@ button {
     margin-top: 10px;
 }
 
-/* Efecto al pasar el ratón sobre el botón */
+/* efecto al pasar el ratón sobre el botón */
 button:hover {
     background: #7fd86d;
     transform: translateY(-2px); /* Pequeña elevación */
 }
 
-/* Enlace inferior formularios */
+/* enlace inferior formularios */
 .footer-text {
     margin-top: 20px;
     font-size: 14px;
@@ -104,8 +104,8 @@ button:hover {
 /* Estilo botón de cerrar sesión */
 .btn-logout {
     display: flex;
-    justify-content: center; /* Centra horizontalmente */
-    align-items: center;     /* Centra verticalmente */
+    justify-content: center;
+    align-items: center;
     padding: 12px 35px;
     background-color: #ff4757; 
     color: white;
@@ -113,7 +113,7 @@ button:hover {
     border-radius: 8px;
     font-weight: bold;
     transition: 0.3s;
-    margin-top: 20px; /* Un poco de espacio arriba */
+    margin-top: 20px;
 }
 
 .btn-logout:hover {
