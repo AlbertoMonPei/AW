@@ -16,7 +16,7 @@ $stmt->store_result();
 
 if ($stmt->num_rows > 0) {  
     $stmt->bind_result($id, $hash);
-    $stmt->fetch(); // [cite: 93]
+    $stmt->fetch();
     
     if (password_verify($password, $hash)) { 
         //si es correcto inicia sesion
@@ -99,7 +99,7 @@ $conn->close();
                 //redirige al registro
                 window.location.href = 'registro.php';
             } else {
-                //redirige al logins
+                //redirige al login
                 window.location.href = 'login.php';
             }
         });
