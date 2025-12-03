@@ -4,10 +4,10 @@ $user = "alberto";
 $pass = "alberto"; 
 $db = "proyecto_login";
 
-// Desactivar reporte de errores visuales de PHP para que no rompa el diseño
+
 mysqli_report(MYSQLI_REPORT_OFF);
 
-$conn = @new mysqli($host, $user, $pass, $db); // El @ oculta errores feos de PHP
+$conn = @new mysqli($host, $user, $pass, $db);
 
 if ($conn->connect_error) {
     ?>
@@ -23,7 +23,7 @@ if ($conn->connect_error) {
             icon: 'error',
             title: 'Error de Conexión',
             text: 'No se pudo conectar a la base de datos.',
-            footer: '<?php echo $conn->connect_error; ?>', // Muestra el error técnico abajo
+            footer: '<?php echo $conn->connect_error; ?>', /*muestra el error*/
             background: '#1a1a1a',
             color: '#fff',
             confirmButtonColor: '#d33'
@@ -32,6 +32,6 @@ if ($conn->connect_error) {
     </body>
     </html>
     <?php
-    die(); // Detiene todo
+    die(); /*detiene todo*/
 }
 ?>

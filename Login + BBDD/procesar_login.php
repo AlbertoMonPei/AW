@@ -5,10 +5,10 @@ include "conexion.php";
 $usuario = $_POST['usuario'];
 $password = $_POST['password'];
 
-// Variable para controlar qué alerta mostrar
+/*variable para controlar que alerta mostrar*/
 $tipo_alerta = ""; 
 
-// Consulta segura
+/*consulta segura*/
 $stmt = $conn->prepare("SELECT id, password FROM usuarios WHERE usuario = ?");
 $stmt->bind_param("s", $usuario); 
 $stmt->execute();
@@ -19,16 +19,16 @@ if ($stmt->num_rows > 0) {
     $stmt->fetch();
     
     if (password_verify($password, $hash)) { 
-        //si es correcto inicia sesion
+        /*si es correcto inicia sesion*/
         $_SESSION['usuario'] = $usuario;
         header("Location: bienvenida.php");
         exit;
     } else {
-        // contraseña incorrecta
+        /*contraseña incorrecta*/
         $tipo_alerta = "password_incorrecta"; 
     }
 } else {
-    // usuario no existe
+    /*usuario no existe*/
     $tipo_alerta = "usuario_no_existe"; 
 }
 
@@ -59,12 +59,12 @@ $conn->close();
 <body>
 
 <script>
-    // Tu color morado
+    /*color morado*/
     const colorBoton = '#a547a8'; 
 
     <?php if ($tipo_alerta == "password_incorrecta") { ?>
         
-        //contraseña incorrecta
+        /*contraseña incorrecta*/
         Swal.fire({
             title: 'Contraseña Incorrecta',
             text: 'La contraseña que ingresaste no coincide.',
@@ -82,7 +82,7 @@ $conn->close();
 
     <?php } elseif ($tipo_alerta == "usuario_no_existe") { ?>
 
-        // usuario no encontrado
+        /*usuario no encontrado*/
         Swal.fire({
             title: 'Usuario no encontrado',
             text: 'Ese nombre de usuario no existe en nuestra base de datos.',
@@ -96,10 +96,10 @@ $conn->close();
             borderRadius: '15px'
         }).then((result) => {
             if (result.isConfirmed) {
-                //redirige al registro
+                /*redirige al registro*/
                 window.location.href = 'registro.php';
             } else {
-                //redirige al login
+                /*redirige al login*/
                 window.location.href = 'login.php';
             }
         });

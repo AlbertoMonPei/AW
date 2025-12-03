@@ -1,14 +1,14 @@
 <?php
-// Incluimos la conexión
+
 include "conexion.php";
 
 $usuario = $_POST['usuario'];
 $password = $_POST['password'];
 
-// Encriptar contraseña
+/*encriptar contraseña*/
 $hash = password_hash($password, PASSWORD_DEFAULT);
 
-// Preparar consulta segura
+/*preparar consulta segura*/
 $stmt = $conn->prepare("INSERT INTO usuarios (usuario, password) VALUES (?, ?)");
 $stmt->bind_param("ss", $usuario, $hash);
 
@@ -27,7 +27,7 @@ $conn->close();
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            /* Este degradado imita el de tu imagen (Verde grisáceo a Morado) */
+            /*degradado */
             background: linear-gradient(135deg, #a8c0b0 0%, #a0669d 100%);
             height: 100vh;
             margin: 0;
@@ -40,25 +40,25 @@ $conn->close();
 <body>
 
 <script>
-    // Color morado extraído de tu botón "Entrar": #9c3395 (aprox)
+    /*color botón Entrar*/
     const colorBoton = '#a03598'; 
 
     <?php if ($resultado) { ?>
-        // --- CASO EXITOSO (Estilo acorde a tu diseño) ---
+        /*registro exitoso*/
         Swal.fire({
             title: '¡Registro Exitoso!',
             text: 'Tu cuenta ha sido creada correctamente',
             icon: 'success',
-            // Estilos visuales:
-            background: '#ffffff',       // Fondo blanco como tu tarjeta
-            color: '#333333',            // Texto gris oscuro
+            /*estilo*/
+            background: '#ffffff',
+            color: '#333333',           
             confirmButtonText: 'Iniciar Sesión',
-            confirmButtonColor: colorBoton, // El morado de tu diseño
-            borderRadius: '15px',         // Bordes redondeados
-            iconColor: colorBoton,        // El icono también morado
+            confirmButtonColor: colorBoton,
+            borderRadius: '15px',
+            iconColor: colorBoton,
             allowOutsideClick: false,
             customClass: {
-                popup: 'mis-bordes-redondos' // Para asegurar redondeado
+                popup: 'mis-bordes-redondos'
             }
         }).then((result) => {
             if (result.isConfirmed) {
@@ -67,7 +67,7 @@ $conn->close();
         });
 
     <?php } else { ?>
-        // --- CASO ERROR ---
+        /*error*/
         Swal.fire({
             title: 'Ups...',
             text: 'El usuario ya existe o hubo un error',
@@ -75,7 +75,7 @@ $conn->close();
             background: '#ffffff',
             color: '#333333',
             confirmButtonText: 'Intentar de nuevo',
-            confirmButtonColor: '#d33', // Rojo para error (o puedes usar el morado también)
+            confirmButtonColor: '#d33',
             borderRadius: '15px'
         }).then((result) => {
             if (result.isConfirmed) {
