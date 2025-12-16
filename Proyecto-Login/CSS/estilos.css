@@ -118,10 +118,8 @@ a:hover {
         /* Estilo ventana */
         .modal-content {
             background-image: 
-        /* Capa 1: Un velo oscuro semitransparente */
-        linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
         
-        /* Capa 2: Imagen de fondo */
+        linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
         url('../Imagenes/ventana-error-exito.jpg');
             background-size: cover;
             background-position: center;
