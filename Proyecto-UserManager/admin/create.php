@@ -1,8 +1,7 @@
 <?php
-// admin/create.php
 session_start();
 
-// Verificar si es admin
+//verificar si el usuario es admin
 if (!isset($_SESSION['user_id']) || $_SESSION['user_rol'] !== 'admin') {
     header("Location: ../login.php");
     exit();
@@ -46,7 +45,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_rol'] !== 'admin') {
             <div class="form-group">
                 <label>Rol:</label>
                 <select name="rol">
-                    <option value="user">Usuario Normal</option>
+                    <option value="user">Usuario</option>
                     <option value="admin">Administrador</option>
                 </select>
             </div>
