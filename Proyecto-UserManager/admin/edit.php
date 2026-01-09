@@ -17,13 +17,12 @@ if (!isset($_GET['id'])) {
 
 $id = $_GET['id'];
 
-// 3. Obtener los datos actuales del usuario
-// USAMOS LA TABLA 'usuarios'
+//obtener los datos actuales del usuario
 $stmt = $pdo->prepare("SELECT * FROM usuarios WHERE id = ?");
 $stmt->execute([$id]);
 $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
 
-// Si no existe el usuario, volvemos a la lista
+//si no existe el usuario, volvemos al index del admin
 if (!$usuario) {
     header("Location: index.php");
     exit();
@@ -63,7 +62,7 @@ if (!$usuario) {
             <div class="form-group">
                 <label>Rol:</label>
                 <select name="rol">
-                    <option value="user" <?php if($usuario['rol'] == 'user') echo 'selected'; ?>>Usuario Normal</option>
+                    <option value="user" <?php if($usuario['rol'] == 'user') echo 'selected'; ?>>Usuario</option>
                     <option value="admin" <?php if($usuario['rol'] == 'admin') echo 'selected'; ?>>Administrador</option>
                 </select>
             </div>
@@ -71,7 +70,7 @@ if (!$usuario) {
             <div class="form-group" style="background: #f9f9f9; padding: 10px; border: 1px dashed #ccc;">
                 <label>Nueva Contraseña (Opcional):</label>
                 <input type="password" name="password" placeholder="Dejar en blanco para mantener la actual">
-                <small>Solo escribe aquí si quieres cambiarle la clave al usuario.</small>
+                <small>Solo escribe aquí si quieres cambiarle la contraseña al usuario.</small>
             </div>
 
             <button type="submit" class="btn">Actualizar Usuario</button>

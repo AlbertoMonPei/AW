@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $edad = $_POST['edad'];
     $rol = $_POST['rol'];
 
-    // encriptar contraseña 
+    //encriptar contraseña 
     $passwordHash = password_hash($password, PASSWORD_DEFAULT);
 
     try {
