@@ -1,13 +1,10 @@
 <?php
-// dashboard.php
 session_start();
 
-// --- EL CANDADO DE SEGURIDAD ---
-// Si la variable de sesión 'user_id' no existe, significa que no se ha logueado.
-// Lo mandamos de vuelta al login inmediatamente.
+/*Si no detecta sesion, nos manda al login */
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
-    exit();
+    exit();/*Evita que se muestre el restro de codigo si detecta que no existe ninguna sesion */
 }
 ?>
 
@@ -24,7 +21,7 @@ if (!isset($_SESSION['user_id'])) {
     <nav style="background: #eee; padding: 10px; display: flex; justify-content: space-between;">
         <span>Bienvenido, <strong><?php echo htmlspecialchars($_SESSION['user_nombre']); ?></strong></span>
         <a href="logout.php" style="color: red;">Cerrar Sesión</a>
-    </nav>
+    </nav> 
 
     <div class="container" style="margin-top: 50px; text-align: center;">
         <h1>Panel de Control</h1>
