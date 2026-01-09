@@ -46,7 +46,7 @@ $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     <table border="1" style="width: 100%; border-collapse: collapse;">
         <thead>
-            <tr style="background-color: #f2f2f2;">
+            <tr style="background-color: #5e5e5eff;">
                 <th>ID</th>
                 <th>Nombre</th>
                 <th>Email</th>

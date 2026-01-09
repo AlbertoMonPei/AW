@@ -1,5 +1,3 @@
-//validacion.js
-//Validación simple de formularios de usuario
 
 document.addEventListener("submit", function(event){
     const form = document.querySelector("form");
@@ -31,9 +29,9 @@ document.addEventListener("submit", function(event){
             errores.push("Selecciona un rol válido.");
         } //comprueba que se ha seleccionado un rol, sino devuelve un error
 
-        if(errores.length>0){
+        if(errores.length > 0){
             event.preventDefault(); //Evita que se envíe el formulario
-            alert(errores.join("\n"));//muestra los errores
+            alert("Por favor, corrige los siguientes errores:\n" + errores.join("\n"));
         }
 
     });

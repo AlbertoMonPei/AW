@@ -1,5 +1,4 @@
 <?php
-// index.php
 session_start();
 ?>
 <!DOCTYPE html>
@@ -14,7 +13,7 @@ session_start();
 
     <div class="container" style="text-align: center; margin-top: 50px;">
         <h1>Bienvenido al Proyecto UserManager</h1>
-        <p>Sistema de gestión de usuarios seguro y escalable.</p>
+        <p>Sistema de gestión de usuarios.</p>
         <hr>
 
         <?php if(isset($_SESSION['user_id'])): ?>
@@ -33,7 +32,6 @@ session_start();
                 <br>
                 <a href="login.php" class="btn">Iniciar Sesión</a>
                 
-                <span style="margin: 0 15px;">ó</span>
                 
                 <a href="register.php" class="btn" style="background-color: #666;">Registrarse</a>
             </div>

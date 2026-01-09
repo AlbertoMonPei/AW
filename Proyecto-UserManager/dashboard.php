@@ -28,13 +28,13 @@ if (!isset($_SESSION['user_id'])) {
         <p>Has iniciado sesión correctamente.</p>
         <p>Tu rol es: <strong><?php echo htmlspecialchars($_SESSION['user_rol']); ?></strong></p>
 
-        <?php if ($_SESSION['user_rol'] === 'admin'): ?>
+        <?php if ($_SESSION['user_rol'] === 'admin'): /*Esta parte de código indica si la sesion es igual a admin, nos da la psoibilidad de ir al crud*/?>
             <div style="margin-top: 20px; padding: 20px; border: 1px solid #ccc; background: #f9f9f9;">
                 <h3>Zona de Administración</h3>
                 <p>Tienes permisos para gestionar usuarios.</p>
                 <a href="admin/index.php" class="btn">Ir al CRUD de Usuarios</a>
             </div>
-        <?php else: ?>
+        <?php else: /*Si no detecta que nuestro rol es admin, nos lleva a nuestra zona privada*/?> 
             <div style="margin-top: 20px;">
                 <p>Bienvenido a tu zona privada de usuario.</p>
             </div>

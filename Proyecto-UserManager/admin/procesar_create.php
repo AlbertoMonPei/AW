@@ -1,9 +1,8 @@
 <?php
-// admin/procesar_create.php
 session_start();
 require_once '../db.php';
 
-// 1. Seguridad: Solo admins
+//solo si se detecta que la sesión es un usuario con rol admin
 if (!isset($_SESSION['user_id']) || $_SESSION['user_rol'] !== 'admin') {
     header("Location: ../login.php");
     exit();
@@ -11,24 +10,23 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_rol'] !== 'admin') {
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
-    // 2. Recoger datos
+    //recoger datos
     $nombre = $_POST['nombre'];
     $email = $_POST['email'];
     $password = $_POST['password'];
     $edad = $_POST['edad'];
     $rol = $_POST['rol'];
 
-    // 3. Encriptar contraseña (OBLIGATORIO)
+    // encriptar contraseña 
     $passwordHash = password_hash($password, PASSWORD_DEFAULT);
 
     try {
-        // 4. Insertar en la base de datos
-        // ¡OJO! Aquí uso 'usuarios' porque me dijiste que así se llama tu tabla
+        //insertar en la base de datos
         $sql = "INSERT INTO usuarios (nombre, email, password, edad, rol) VALUES (?, ?, ?, ?, ?)";
         $stmt = $pdo->prepare($sql);
         $stmt->execute([$nombre, $email, $passwordHash, $edad, $rol]);
 
-        // 5. Redirigir al listado si todo salió bien
+        //si todo sale bien redirijir alindex
         header("Location: index.php");
         exit();
 

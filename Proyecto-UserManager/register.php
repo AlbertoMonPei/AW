@@ -1,6 +1,4 @@
 <?php
-// register.php
-// No necesitamos session_start() aquí obligatoriamente salvo que quieras redirigir si ya está logueado
 ?>
 <!DOCTYPE html>
 <html lang="es">

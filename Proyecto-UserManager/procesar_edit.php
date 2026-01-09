@@ -19,5 +19,5 @@ if($_POST){
     header("Location: list.php");
     exit;
 }
-/*SEPARAR GESTION DE EDICION DEL FORMULARIO*/
+
 ?>

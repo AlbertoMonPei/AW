@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $sql = "INSERT INTO usuarios (nombre,email,password,edad,rol) VALUES (?,?,?,?,?)";
         $stmt = $pdo->prepare($sql);
         $stmt->execute([$nombre, $email, $pass_hash, $edad, $rol]);
-        header("Location: list.php");
+        header("Location: login.php");
         exit;
 
     } catch (PDOException $e) {
