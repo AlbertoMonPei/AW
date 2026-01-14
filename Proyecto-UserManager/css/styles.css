@@ -9,8 +9,6 @@ body {
     min-height: 100vh;
     background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
     color: #444;
-    
-    /* Centrado vertical y horizontal */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -30,7 +28,7 @@ a:hover {
 }
 
 /* Contenedroes*/
-/* Usamos una clase común para Login y Admin*/
+/* clase común para Login y Admin*/
 
 /* Tarjeta pequeña (Login/Registro) */
 .form-container {
@@ -51,9 +49,9 @@ a:hover {
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     width: 90%;
-    max-width: 1000px; /*Ancho para que entre la tabla */
+    max-width: 1000px;
     margin-top: 50px;
-    text-align: left; /*El contenido general alineado a la izquierda*/
+    text-align: left;
 }
 
 /* titulos */
@@ -100,8 +98,8 @@ input:focus, select:focus {
 /*botones*/
 .btn {
     display: inline-block;
-    background-color: #9b59b6; /* Morado Principal */
-    color: white !important; /* Forzamos blanco aunque sea enlace */
+    background-color: #9b59b6;
+    color: white !important; 
     padding: 12px 25px;
     border: none;
     border-radius: 10px;
@@ -191,12 +189,12 @@ tbody tr:last-of-type {
     border-bottom: 2px solid #9b59b6;
 }
 
-/* 8. NAVEGACIÓN (Barra superior del Dashboard) */
+/*Barra superior del Dashboard*/
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #f0f0f0; /* Gris muy suave */
+    background-color: #f0f0f0; 
     padding: 15px 20px;
     border-radius: 12px;
     margin-bottom: 30px;
@@ -207,7 +205,7 @@ nav span {
     color: #555;
 }
 
-/* Pie de página */
+/* pie pagina*/
 footer {
     margin-top: 30px;
     color: white;

@@ -2,7 +2,7 @@
 session_start();
 require_once '../db.php';
 
-//solo si se detecta que la sesión es un usuario con rol admin
+
 if (!isset($_SESSION['user_id']) || $_SESSION['user_rol'] !== 'admin') {
     header("Location: ../login.php");
     exit();
@@ -10,7 +10,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_rol'] !== 'admin') {
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
-    //recoger datos
+ 
     $nombre = $_POST['nombre'];
     $email = $_POST['email'];
     $password = $_POST['password'];

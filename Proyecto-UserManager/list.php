@@ -2,8 +2,8 @@
 include "db.php";
 
 
-$stmt = $pdo->query("SELECT * FROM usuarios");/*consulta tabla usuarios*/
-$usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);/*convierte en una lista*/
+$stmt = $pdo->query("SELECT * FROM usuarios");
+$usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html> 
 <html> 
