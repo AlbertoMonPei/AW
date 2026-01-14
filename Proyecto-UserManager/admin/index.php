@@ -1,26 +1,18 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-// admin/index.php
+
 session_start();
 
-// --- 1. BLOQUE DE SEGURIDAD (CRÍTICO) ---
-// Verificamos dos cosas:
-// A) Que el usuario esté logueado.
-// B) Que su rol sea EXACTAMENTE 'admin'.
+
 if (!isset($_SESSION['user_id']) || $_SESSION['user_rol'] !== 'admin') {
-    // Si falla cualquiera de las dos, lo mandamos fuera (al login o al dashboard)
+    
     header("Location: ../login.php");
     exit();
 }
 
-// --- 2. CONEXIÓN A LA BASE DE DATOS ---
-// Usamos "../" para subir un nivel y encontrar el archivo db.php
+
 require_once '../db.php';
 
-// --- 3. OBTENER LOS USUARIOS ---
-// Consulta para traer todos los usuarios
+
 $stmt = $pdo->query("SELECT * FROM usuarios");
 $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>

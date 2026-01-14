@@ -174,14 +174,14 @@ tbody tr {
     transition: background 0.2s;
 }
 
-/* Filas alternas para mejor lectura */
+
 tbody tr:nth-child(even) {
     background-color: #fcfcfc;
 }
 
 /* Efecto hover en filas */
 tbody tr:hover {
-    background-color: #f3e5f5; /* Un morado muy muy clarito al pasar el ratón */
+    background-color: #f3e5f5;
 }
 
 /* Última línea sin borde */

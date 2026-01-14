@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-/*Si no detecta sesion, nos manda al login */
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
     exit();

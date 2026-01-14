@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-//verificar si el usuario es admin
 if (!isset($_SESSION['user_id']) || $_SESSION['user_rol'] !== 'admin') {
     header("Location: ../login.php");
     exit();

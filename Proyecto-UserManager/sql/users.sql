@@ -14,4 +14,4 @@ CREATE TABLE IF NOT EXISTS usuarios (
 
 
 INSERT INTO usuarios (nombre, email, edad, password, rol) 
-VALUES ('alberto', 'alberto@correo.es', 32, '$2y$10$Xw6PXq.Y.s.m.k/..t.u..g/..h.j.k.l.m.n.o.p.q.r.s.t.u', 'admin');
+VALUES ('alberto', 'alberto@correo.es', 32, '$2y$10$h6ykiOrnAWi6Sza5bvlkwOt9AOxJGe08f1Pgg1akMiyLu9xPCCjrG', 'admin');
