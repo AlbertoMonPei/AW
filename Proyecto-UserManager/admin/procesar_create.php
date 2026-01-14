@@ -17,16 +17,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $edad = $_POST['edad'];
     $rol = $_POST['rol'];
 
-    //encriptar contraseña 
+    
     $passwordHash = password_hash($password, PASSWORD_DEFAULT);
 
     try {
-        //insertar en la base de datos
+        
         $sql = "INSERT INTO usuarios (nombre, email, password, edad, rol) VALUES (?, ?, ?, ?, ?)";
         $stmt = $pdo->prepare($sql);
         $stmt->execute([$nombre, $email, $passwordHash, $edad, $rol]);
 
-        //si todo sale bien redirijir alindex
+        
         header("Location: index.php");
         exit();
 
