@@ -12,7 +12,7 @@ session_start();
 <body>
 
     <div class="container" style="text-align: center; margin-top: 50px;">
-        <h1>Bienvenido al Proyecto UserManager</h1>
+        <h1>Proyecto UserManager</h1>
         <hr>
 
         <?php if(isset($_SESSION['user_id'])): ?>
