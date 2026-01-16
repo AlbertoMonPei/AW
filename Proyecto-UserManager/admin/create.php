@@ -11,48 +11,38 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_rol'] !== 'admin') {
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Crear Usuario - Admin</title>
+    <title>Crear Usuario</title>
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
 
-    <div class="form-container">
-        <h2>Crear Nuevo Usuario</h2>
+    <div class="container">
+        <h2 class="center">Crear Nuevo Usuario</h2>
 
-        <form action="procesar_create.php" method="POST">
-            
-            <div class="form-group">
-                <label>Nombre:</label>
-                <input type="text" name="nombre" required>
-            </div>
+        <form action="procesar_create.php" method="POST" novalidate>
+            <label>Nombre</label>
+            <input type="text" name="nombre" required>
 
-            <div class="form-group">
-                <label>Email:</label>
-                <input type="email" name="email" required>
-            </div>
+            <label>Email</label>
+            <input type="email" name="email" required>
 
-            <div class="form-group">
-                <label>Contraseña:</label>
-                <input type="password" name="password" required>
-            </div>
+            <label>Contraseña</label>
+            <input type="password" name="password" required>
 
-            <div class="form-group">
-                <label>Edad:</label>
-                <input type="number" name="edad" required>
-            </div>
+            <label>Edad</label>
+            <input type="number" name="edad" required>
 
-            <div class="form-group">
-                <label>Rol:</label>
-                <select name="rol">
-                    <option value="user">Usuario</option>
-                    <option value="admin">Administrador</option>
-                </select>
-            </div>
+            <label>Rol</label>
+            <select name="rol">
+                <option value="user">Usuario</option>
+                <option value="admin">Administrador</option>
+            </select>
 
-            <button type="submit" class="btn">Guardar Usuario</button>
-            <a href="index.php" style="display:block; text-align:center; margin-top:10px;">Cancelar</a>
+            <button type="submit" class="btn full">Guardar</button>
+            <a href="index.php" class="btn gray full">Cancelar</a>
         </form>
     </div>
+
     <script src="../js/validacion.js"></script>
 
 </body>

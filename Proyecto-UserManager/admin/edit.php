@@ -1,28 +1,22 @@
 <?php
-// admin/edit.php
 session_start();
 require_once '../db.php';
 
-// 1. Seguridad: Solo admin
 if (!isset($_SESSION['user_id']) || $_SESSION['user_rol'] !== 'admin') {
     header("Location: ../login.php");
     exit();
 }
 
-// 2. Verificar que nos pasan un ID
 if (!isset($_GET['id'])) {
     header("Location: index.php");
     exit();
 }
 
 $id = $_GET['id'];
-
-//obtener los datos actuales del usuario
 $stmt = $pdo->prepare("SELECT * FROM usuarios WHERE id = ?");
 $stmt->execute([$id]);
 $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
 
-//si no existe el usuario, volvemos al index del admin
 if (!$usuario) {
     header("Location: index.php");
     exit();
@@ -38,45 +32,40 @@ if (!$usuario) {
 </head>
 <body>
 
-    <div class="form-container">
-        <h2>Editar Usuario</h2>
+    <div class="container">
+        <h2 class="center">Editar Usuario</h2>
 
-        <form action="procesar_edit.php" method="POST">
+        <form action="procesar_edit.php" method="POST" novalidate>
             <input type="hidden" name="id" value="<?php echo $usuario['id']; ?>">
 
-            <div class="form-group">
-                <label>Nombre:</label>
-                <input type="text" name="nombre" value="<?php echo htmlspecialchars($usuario['nombre']); ?>" required>
-            </div>
+            <label>Nombre</label>
+            <input type="text" name="nombre" value="<?php echo htmlspecialchars($usuario['nombre']); ?>" required>
 
-            <div class="form-group">
-                <label>Email:</label>
-                <input type="email" name="email" value="<?php echo htmlspecialchars($usuario['email']); ?>" required>
-            </div>
+            <label>Email</label>
+            <input type="email" name="email" value="<?php echo htmlspecialchars($usuario['email']); ?>" required>
 
-            <div class="form-group">
-                <label>Edad:</label>
-                <input type="number" name="edad" value="<?php echo htmlspecialchars($usuario['edad']); ?>" required>
-            </div>
+            <label>Edad</label>
+            <input type="number" name="edad" value="<?php echo htmlspecialchars($usuario['edad']); ?>" required>
 
-            <div class="form-group">
-                <label>Rol:</label>
-                <select name="rol">
-                    <option value="user" <?php if($usuario['rol'] == 'user') echo 'selected'; ?>>Usuario</option>
-                    <option value="admin" <?php if($usuario['rol'] == 'admin') echo 'selected'; ?>>Administrador</option>
-                </select>
-            </div>
+            <label>Rol</label>
+            <select name="rol">
+                <option value="user" <?php if($usuario['rol'] == 'user') echo 'selected'; ?>>Usuario</option>
+                <option value="admin" <?php if($usuario['rol'] == 'admin') echo 'selected'; ?>>Administrador</option>
+            </select>
 
-            <div class="form-group" style="background: #f9f9f9; padding: 10px; border: 1px dashed #ccc;">
-                <label>Nueva Contraseña (Opcional):</label>
+            <div class="box">
+                <label>Nueva Contraseña (Opcional)</label>
                 <input type="password" name="password" placeholder="Dejar en blanco para mantener la actual">
-                <small>Solo escribe aquí si quieres cambiarle la contraseña al usuario.</small>
             </div>
 
-            <button type="submit" class="btn">Actualizar Usuario</button>
-            <a href="index.php" style="display:block; text-align:center; margin-top:10px;">Cancelar</a>
+            <div class="form-actions">
+                <a href="index.php" class="btn gray">Cancelar</a>
+                <button type="submit" class="btn">Actualizar</button>
+            </div>
+            
         </form>
     </div>
+
     <script src="../js/validacion.js"></script>
 
 </body>

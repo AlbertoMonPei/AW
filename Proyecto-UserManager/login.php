@@ -2,40 +2,32 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iniciar sesión</title>
+    <title>Iniciar Sesión</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <div class="form-container">
-        <h2>Iniciar Sesión</h2>
 
+    <div class="container">
+        <h2 class="center">Iniciar Sesión</h2>
+        
         <?php if(isset($_GET['error'])): ?>
-            <p style="color: red;">Email o contraseña incorrectos.</p>
+            <p style="color: red; text-align: center;">Email o contraseña incorrecta</p>
         <?php endif; ?>
 
         <form action="procesar_login.php" method="POST">
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
-            </div>
+            <label>Email</label>
+            <input type="email" name="email" required>
 
-            <br>
+            <label>Contraseña</label>
+            <input type="password" name="password" required>
 
-            <div class="form-group">
-                <label for="password">Contraseña:</label>
-                <br>
-                <input type="password" id="password" name="password" required>
-            </div>
-
-            <br>
-
-            <button type="submit" class="btn">Entrar</button>
+            <button type="submit" class="btn full">Entrar</button>
         </form>
 
-        <p>¿No tienes cuenta? <a href="register.php">Registrate aquí</a></p>
+        <p class="center" style="margin-top: 20px;">
+            ¿No tienes cuenta? <a href="register.php">Regístrate aquí</a>
+        </p>
     </div>
 
-    
 </body>
 </html>

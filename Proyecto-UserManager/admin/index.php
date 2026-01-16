@@ -1,19 +1,13 @@
 <?php
-
 session_start();
 
-
 if (!isset($_SESSION['user_id']) || $_SESSION['user_rol'] !== 'admin') {
-    
     header("Location: ../login.php");
     exit();
 }
 
-
-require_once '../db.php';
-
-
-$stmt = $pdo->query("SELECT * FROM usuarios");
+require '../db.php'; 
+$stmt = $pdo->query("SELECT * FROM usuarios"); 
 $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
@@ -21,52 +15,47 @@ $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Administración de Usuarios</title>
+    <title>Administración</title>
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
 
-<div class="container">
-    <div style="display:flex; justify-content:space-between; align-items:center;">
-        <h1>Panel de Administración</h1>
-        <a href="../dashboard.php" class="btn" style="background-color: #666;">Volver al Dashboard</a>
+    <div class="container wide">
+        <div class="box nav">
+            <h2>Listado de Usuarios</h2>
+            <a href="../dashboard.php" class="btn gray">Volver</a>
+        </div>
+        
+        <div style="margin-top: 20px;">
+            <a href="create.php" class="btn">+ Nuevo Usuario</a>
+        </div>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Rol</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($usuarios as $u): ?>
+                <tr>
+                    <td><?= $u['id'] ?></td>
+                    <td><?= htmlspecialchars($u['nombre']) ?></td>
+                    <td><?= htmlspecialchars($u['email']) ?></td>
+                    <td><?= htmlspecialchars($u['rol']) ?></td>
+                    <td>
+                        <a href="edit.php?id=<?= $u['id'] ?>" class="btn" style="padding: 5px 10px; font-size: 0.9em;">Editar</a>
+                        <a href="delete.php?id=<?= $u['id'] ?>" class="btn red" style="padding: 5px 10px; font-size: 0.9em;" onclick="return confirm('¿Seguro?')">Borrar</a>
+                    </td>
+                </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
     </div>
-
-    <h2>Listado de Usuarios</h2>
-    
-    <a href="create.php" class="btn" style="margin-bottom: 15px;">+ Nuevo Usuario</a>
-
-    <table border="1" style="width: 100%; border-collapse: collapse;">
-        <thead>
-            <tr style="background-color: #5e5e5eff;">
-                <th>ID</th>
-                <th>Nombre</th>
-                <th>Email</th>
-                <th>Rol</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($usuarios as $u): ?>
-            <tr>
-                <td><?php echo htmlspecialchars($u['id']); ?></td>
-                <td><?php echo htmlspecialchars($u['nombre']); ?></td>
-                <td><?php echo htmlspecialchars($u['email']); ?></td>
-                
-                <td style="<?php echo ($u['rol'] == 'admin') ? 'font-weight:bold; color:blue;' : ''; ?>">
-                    <?php echo htmlspecialchars($u['rol']); ?>
-                </td>
-                
-                <td>
-                    <a href="edit.php?id=<?php echo $u['id']; ?>" class="btn-edit">Editar</a>
-
-                    <a href="delete.php?id=<?php echo $u['id']; ?>" class="btn-delete" onclick="return confirm('¿Seguro que quieres eliminar este usuario?');">Eliminar</a></a>
-                </td>
-            </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
-</div>
 
 </body>
 </html>

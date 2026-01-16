@@ -27,10 +27,9 @@ session_start();
 
         <?php else: ?>
             <div style="margin-top: 30px;">
-                <p>Por favor, elige una opción para continuar:</p>
+
                 <br>
                 <a href="login.php" class="btn">Iniciar Sesión</a>
-                
                 
                 <a href="register.php" class="btn" style="background-color: #666;">Registrarse</a>
             </div>
