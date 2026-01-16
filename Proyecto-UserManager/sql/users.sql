@@ -1,4 +1,3 @@
-
 CREATE DATABASE IF NOT EXISTS usermanager CHARACTER SET utf8mb4;
 USE usermanager;
 
