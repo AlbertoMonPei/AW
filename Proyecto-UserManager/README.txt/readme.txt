@@ -1,17 +1,22 @@
-Este proyecto consiste en crear una aplicacion web de un CRUD (Crear, Leer, Actualizar y Eliminar).
+Proyecto usermanager - Gestión de Usuarios
 
-El objetivo es gestionar usuarios permitiendo el registro, el login y un panel de administracion protegido solo para usuarios con rol de admin.
+Proyecto de desarrollo web en entorno servidor. Es un sistema básico para gestionar usuarios (CRUD) implementando control de acceso y seguridad.
 
---ESTRUCTURA--
+Funcionalidades
+- Registro y Login: Autenticación de usuarios.
+- Roles: Diferenciación entre usuario normal y administrador.
+- Administración: Opción de editar y borrar usuarios (solo admin).
+- Seguridad: Uso de sesiones y encriptación de claves.
 
-He organizado la estructura en varios bloques y archivos.
+Requisitos
+- Servidor web (Apache/XAMPP).
+- PHP 7 o superior.
+- Base de datos MySQL.
 
-Bloque admin: es zona privada donde tengo todas las operaciones que se pueden realizar del CRUD.
-Bloque CSS: donde está toda la personalizacion visual del codigo de la aplicacion
-Bloque sql: donde tengo las instrucciones para crear la base de datos, insertando por primera vez un usuario con rol de admin.
-Bloque JavaScript(js):
-Bloque readme: en este bloque tengo un archivo donde explico qué es, cómo funciona y cómo está estructurado.
+Instalación
+1. Importar la base de datos `usermanager` usando el script SQL adjunto.
+2. Configurar la conexión a la base de datos en el archivo PHP correspondiente.
+3. Ejecutar en el navegador.
 
-index.php: está es la página principal de la aplicación, en ella damos la bienvenida a la aplicacion y damos la opcion de registrarnos o logearnos.
-db.php: en este archivo conectamos la aplicacion a nuestra base de datos creada previamente usando mysql
-list.php: en este archivo tengo creado la lista de usuarios, en el que puedo 
+Tecnologías
+- HTML, CSS, JavaScript, PHP y MySQL.
